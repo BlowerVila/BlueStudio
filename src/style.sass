@@ -1,0 +1,402 @@
+//顏色定義
+$color_blue: #33313B
+$color_yellow: #4592AF 
+$color_lighten_yellow: #E3C4A8
+$color_white: #ececec
+// -----------------------
+*
+  font-family: "微軟正黑體","Oswald"
+  // border: 1px solid !important
+
+//debug
+// header,section,footer
+//   display: none
+// section#section_works
+//   display: block
+  
+// -----------------------
+@mixin ab_center
+  position: absolute
+  left: 50%
+  top: 50%
+  transform: translate(-50%,-50%)
+
+@mixin wh($w,$h)
+  width: $w
+  height: $h
+
+// -----------------------
+
+html,body
+  background-color: #999
+  overflow-x: hidden
+  font-size: 16px
+  padding: 0
+  margin: 0
+  
+  //測試explore用
+  height: 200vh
+  
+nav
+  padding: 10px 30px
+  background-color: #f7f7f7
+  position: fixed
+  z-index: 999
+  transition: 0.3s
+  .container-fluid
+    display: flex
+    justify-content: space-between
+  .navbar-brand
+    color: grey
+  .navbar-nav
+    display: flex
+    gap: 30px
+    // color: $color_white
+    li
+      color: grey
+      cursor: pointer
+      padding: 0
+      list-style: none
+      transition: 0.5s
+      &:hover
+        color: $color_yellow
+      a
+        //消除底線
+        text-decoration: none
+        
+        //顏色根據父元素而定
+        color: inherit
+  
+nav.navbar.at_top
+  background-color: transparent
+  color: $color_white
+  border-bottom: 1px solid rgba($color_white,0.5)
+  
+// -----------------------  
+
+header
+  position: relative
+  background-color: $color_blue
+  text-align: center
+  .icon
+    //最大希望250px 以下的話維持80%伸縮
+    width: 80%
+    max-width:250px
+    padding: 250px 0px
+  .marginbottom
+    position: absolute
+    left: 10px
+    right: none
+    bottom: -60px
+    transform: translateY(25px) scaleY(1.5)
+    width: 95%
+    animation: 2s upin both
+    transition-delay: 0.5s
+    transition: 0.3s
+    z-index: 2
+  .mountain2
+    left: 0
+    right: none
+    transform: translateY(50px) scaleX(1.5)
+    transition-delay: 0.7s
+    transition: 0.3s
+    z-index: 1
+    
+  .explore
+    +ab_center
+    color: $color_lighten_yellow
+    font-size: 16px
+    top: 85%
+    opacity: 0
+    transition: 0.5s
+    &:before
+      content: "V"
+      font-weight: 250
+      display: block
+      transform: scaleX(2.4) scaleY(0.5) translateY(110px)
+    &:after
+      //用ｖ製作一個向下箭頭
+      content: "V"
+      font-weight: 250
+      display: block
+      transform: scaleX(2.4) scaleY(0.5)
+    
+    //有.explore同時又有.at_top 和與&後有空格不一樣；畫面向下拖動時explore消失
+    &.at_top
+      opacity: 1
+    
+    
+  @keyframes upin
+    0%
+      bottom: -100px
+    100%
+      bottom: 0
+    
+// -----------------------  
+section
+  padding: 60px 0px
+  position: relative
+  // border-color: rgba(black,0.7)
+// -----------------------  
+
+section#section_about
+  background-color: $color_yellow
+  z-index: 4
+  .container
+    transform: rotate(15deg) scale(0.9)
+  .row
+    height: 150px
+    color: black
+    
+    .r1text
+      font-size: clamp(2rem, 6vw, 5rem) //80px
+      transition: 0.1s
+    .r2text
+      font-size: 30px
+      transition: 0.2s
+    .r3text
+      font-size: 50px
+      text-align: right
+      transition: 0.3s
+      
+  .marginbottom
+    position: absolute
+    width: 60%
+    top: calc(100% - 2px)
+    z-index: 2
+    
+  .btn_area    
+    height: 150px
+    position: relative
+  a
+    +ab_center
+    transform: translate(-50%,-50%) rotate(10deg)
+    
+  .tri
+    width: 250px
+    transform: rotate(-15deg)
+  .tri2
+    width: 20px
+    margin-left: 20px
+  .tri3
+    width: 150px
+    margin-left: 70%
+  .tri4
+    width: 70px
+    margin-left: 100%
+  .tri5
+    width: 80px
+    margin-left: 100%
+    
+#cross
+  position: absolute
+  display: block
+  z-index: 5
+  //滑鼠點擊事件會穿透
+  pointer-events: none
+  
+  background-image: url("https://imgur.com/XuG588h.png")
+  background-size: 100% 100%
+  width: 60px
+  height: 60px
+  transform: translate(-50%,-50%)
+  
+  filter: drop-shadow(0 0 10px darken(#4592AF,10))
+  
+#cat
+  position: absolute
+  width: 40%
+  max-width: 450px
+  bottom: 0px
+  right: 40px
+  // transform: translateX(-50%)
+  
+// -----------------------  
+section#section_service
+  background-color: $color_white
+  // padding: 80px 0px
+  .col-sm-4
+    text-align: center
+  h3
+    color: $color_blue
+    margin-top: 12px
+    font-size: 20px
+  .icon_service
+    width: 60%
+    
+// -----------------------  
+section#section_works
+  background-color: $color_white
+  
+  .work
+    height: 230px
+    cursor: pointer
+    position: relative
+    padding: 5px
+    overflow: hidden
+    
+    //是.work又.big 所以&和.big之間不空格
+    &.big
+      height: 460px
+    
+    &:before
+      content: ""
+      display: block
+      opacity: 0
+ 
+      +ab_center
+      +wh(100%,100%)
+      background-color: rgba(black,0.7)
+      z-index: 5
+      transition: 0.5s
+    
+    .texts
+      +ab_center
+      color: white
+      z-index: 8
+      opacity: 0
+      transition: 0.5s
+      .title
+        line-height: 24px
+    
+    &:hover
+      &:before,.texts
+        opacity: 1
+    
+      
+  .work img
+    height: 100%
+    +ab_center
+  .contacttop
+    width: 100%
+    position: absolute
+    bottom: -17%
+    // top: 0
+    left: 10%
+    z-index: 3
+    
+  a
+    display: block
+    position: relative
+    +wh(100%,100%)
+    
+    
+// -----------------------  
+section#section_contact
+  background-color: $color_blue
+  color: $color_white
+  overflow: hidden
+  position: relative
+  .mails
+    position: relative
+    height: 450px
+    .mailbody
+      color: $color_white
+      padding: 20px
+      padding-left: 40px
+      +ab_center
+      width: 100%
+      position: relative
+    h5
+      letter-spacing: 0.2rem
+      font-weight: 400
+      font-size: 24px
+      margin-bottom: 20px
+    label
+      color: $color_white
+      letter-spacing: 0.1rem
+      margin-bottom: 2px
+    input
+      width: 300px
+      padding: 1% 0 1% 4px
+    input,textarea
+      display: block
+      border: 3px solid $color_white
+      background-color: $color_white
+    textarea
+      width: 100%
+      height: 140px
+      z-index: 4
+      margin-bottom: 10px
+    .btn
+      background-color: $color_lighten_yellow
+      font-size: 18px
+      font-weight: 400
+      letter-spacing: 0.1rem
+      padding: 8px 30px
+      &:hover
+        background-color: darken(#E3C4A8,10)
+      
+      
+  #people
+    position: absolute
+    right: 110px
+    background-image: url("https://imgur.com/ohumFzr.png")
+    background-size: 100% 
+    display: block
+    +wh(250px,250px)
+    transform: translateY(-20px)
+    z-index: 2
+
+      
+  .col-sm-5.right
+    padding-left: 30px
+    margin-top: 50px
+    h2
+      font-size: 50px
+      letter-spacing: 0.4rem
+    p
+      letter-spacing: 0.1rem
+      font-weight: 350
+    .last
+      color: $color_yellow
+      
+
+//三隻貓咪
+.cats
+  position: absolute
+  bottom: 0
+  left: 0
+  width: 40%
+  height: 200px
+  .cat
+    position: absolute
+    width: 150px
+
+    transform: translateX(-50%)
+    transition: 0.5s
+
+  
+#cat_blue
+  left: 20%
+#cat_grey
+  left: 50%
+#cat_yellow
+  left: 80%
+    
+  
+// -----------------------  
+#footer
+  position: relative
+  background-color: $color_yellow
+  text-align: center
+  .icon
+    width: 20%
+    min-width: 250px
+    padding: 80px 0px
+    padding-bottom: 40px
+    filter: brightness(-20)
+  .nav
+    display: flex
+    flex-direction: row
+    justify-content: center
+    gap: 20px
+    font-size: 18px
+    font-weight: 400
+    letter-spacing: 0.2rem
+    padding: 20px 0
+  .li,a
+    display: inline-block
+    color: $color_blue
+    text-decoration: none 
+    

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>【Project_06】Blue Studio</title>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&amp;display=swap'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<nav class="navbar navbar-expand-lg fixed-top at_top">
+  <div class="container-fluid"><a class="navbar-brand" href="#header_index"> BLUE STUDIO</a>
+    <!--折疊區域 .collapse範圍內物件在螢幕縮小時會疊成漢堡選單-->
+    <div class="navbar-collapse collapse">
+      <div class="nav navbar-nav ms-auto">
+        <li><a href="#section_about">ABOUT</a></li>
+        <li><a href="#section_service">SERVICE </a></li>
+        <li><a href="#section_works">WORKS</a></li>
+        <li><a href="#section_contact">CONTACT</a></li>
+      </div>
+    </div>
+  </div>
+</nav>
+<header id="header_index">
+  <div class="container"><img class="icon" src="https://imgur.com/RjSlxvd.png" alt=""/><img class="marginbottom mountain" src="https://imgur.com/ae1tF4T.png" alt=""/><img class="marginbottom mountain2" src="https://imgur.com/9gttqVi.png" alt=""/>
+    <div class="explore at_top">EXPLORE</div>
+  </div>
+</header>
+<section id="section_about">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 offset-md-4"><img class="tri tri1" src="https://awiclass.monoame.com/img/webpic/w_tri1.svg" alt=""/>
+        <h2 class="r1text">WORKS IN BLUE</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4"><img class="tri tri2" src="https://awiclass.monoame.com/img/webpic/w_tri2.svg" alt=""/></div>
+      <div class="col-sm-8"><img class="tri tri3" src="https://awiclass.monoame.com/img/webpic/w_tri3.svg" alt=""/>
+        <h4 class="r2text">BLUE STUDIO - Website Design/Development</h4>
+        <h4 class="r2text">Interactive Art Design</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-8">
+        <h3 class="r3text">430 MORE SUCCESS CASES</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4 btn_area"><a class="btn btn-lg btn-light" href="#section_works">MORE STORY</a><img class="tri tri4" src="https://awiclass.monoame.com/img/webpic/w_tri4.svg" alt=""/></div>
+      <div class="col-sm-4 btn_area"><img class="tri tri5" src="https://awiclass.monoame.com/img/webpic/w_tri5.svg" alt=""/></div>
+    </div>
+  </div><img id="cat" src="https://imgur.com/P6JRpIu.png" alt=""/>
+  <div id="cross"></div>
+</section>
+<section id="section_service">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4"><img class="icon_service" src="https://imgur.com/fapHv96.png" alt=""/>
+        <h3>CI/VI Design</h3>
+      </div>
+      <div class="col-sm-4"><img class="icon_service" src="https://imgur.com/2GbETVu.png" alt=""/>
+        <h3>MotionGraphic</h3>
+      </div>
+      <div class="col-sm-4"><img class="icon_service" src="https://imgur.com/OmRmCpw.png" alt=""/>
+        <h3>Web Development</h3>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="section_works">
+  <div class="container" id="app">
+    <div class="row" v-if="works.length&gt;0">
+      <div class="col-sm-12">
+        <h1>Works</h1>
+      </div>
+    </div>
+    <!--有.work的都是圖片放置處-->
+    <div class="row">
+      <div class="col-sm-6 work big"><a :href="works[0].Link" target="_blank"> <img v-bind:src="works[0].img" alt=""/>
+          <div class="texts">
+            <h4 class="title">{{works[0].title}}</h4>
+            <p class="content" v-html="works[0].content.substr(0,40)"></p>
+          </div></a></div>
+      <div class="col-sm-6">
+        <div class="row">
+          <div class="col-sm-6 work" v-for="w in works.slice(1,5)"><a :href="w.Link" target="_blank"> <img :src="w.img" alt=""/>
+              <div class="texts">
+                <h4 class="title">{{w.title}}</h4>
+              </div></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="section_contact">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-5 right">
+        <h2>CONTACT</h2><br/>
+        <p>If you have any question about us<br>Don't hestitate to contact us!</p><br/><br/>
+        <p class="last">BLUESTUDIO@gmail.com<br>ADDRESS: TAIWAN, TAIPEI, XORO ROAD<br>Phone: 02-12345678</p>
+      </div>
+      <div class="col-sm-7">
+        <div id="people"></div>
+        <div class="mails">
+          <div class="mailbody">
+            <h5>Dear Blue Studio.</h5>
+            <label>Name</label>
+            <input type="text"/>
+            <label>Email</label>
+            <input type="text"/>
+            <label>Content</label>
+            <textarea> </textarea>
+            <button class="btn submit">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer id="footer"><img class="icon" src="https://imgur.com/cqCrmIZ.png" alt=""/>
+  <div class="nav navbar-nav ms-auto">
+    <li><a href="#section_about">ABOUT</a></li>
+    <li><a href="#section_service">SERVICE </a></li>
+    <li><a href="#section_works">WORKS</a></li>
+    <li><a href="#section_contact">CONTACT</a></li>
+  </div>
+</footer>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.8/vue.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

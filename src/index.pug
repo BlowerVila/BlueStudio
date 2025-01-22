@@ -1,0 +1,123 @@
+nav.navbar.navbar-expand-lg.fixed-top.at_top
+  .container-fluid
+    a.navbar-brand(href="#header_index")  BLUE STUDIO
+    
+    //折疊區域 .collapse範圍內物件在螢幕縮小時會疊成漢堡選單
+    .navbar-collapse.collapse
+      .nav.navbar-nav.ms-auto
+       li
+          a(href="#section_about") ABOUT
+       li
+          a(href="#section_service") SERVICE 
+       li
+          a(href="#section_works") WORKS
+       li
+          a(href="#section_contact") CONTACT
+        
+
+header#header_index
+  .container
+    img.icon(src="https://imgur.com/RjSlxvd.png", alt="")
+    img.marginbottom.mountain(src="https://imgur.com/ae1tF4T.png", alt="")
+    img.marginbottom.mountain2(src="https://imgur.com/9gttqVi.png", alt="")
+    .explore.at_top EXPLORE
+    
+section#section_about
+  .container
+    .row
+      .col-sm-8.offset-md-4
+        img.tri.tri1(src="https://awiclass.monoame.com/img/webpic/w_tri1.svg", alt="")
+        h2.r1text WORKS IN BLUE
+    .row
+      .col-sm-4
+        img.tri.tri2(src="https://awiclass.monoame.com/img/webpic/w_tri2.svg", alt="")
+      .col-sm-8
+        img.tri.tri3(src="https://awiclass.monoame.com/img/webpic/w_tri3.svg", alt="")
+        h4.r2text BLUE STUDIO - Website Design/Development
+        h4.r2text Interactive Art Design
+    .row
+      .col-sm-8
+        h3.r3text 430 MORE SUCCESS CASES
+    .row
+      .col-sm-4.btn_area
+        a.btn.btn-lg.btn-light(href="#section_works") MORE STORY
+        img.tri.tri4(src="https://awiclass.monoame.com/img/webpic/w_tri4.svg", alt="")
+      .col-sm-4.btn_area
+        img.tri.tri5(src="https://awiclass.monoame.com/img/webpic/w_tri5.svg", alt="")
+    
+  img#cat(src="https://imgur.com/P6JRpIu.png", alt="")  
+  #cross
+        
+section#section_service
+  .container
+    .row
+      //- .col-sm-12
+        h1 Service
+      .col-sm-4
+        img.icon_service(src="https://imgur.com/fapHv96.png", alt="")
+        h3 CI/VI Design
+      .col-sm-4
+        img.icon_service(src="https://imgur.com/2GbETVu.png", alt="")
+        h3 MotionGraphic
+      .col-sm-4
+        img.icon_service(src="https://imgur.com/OmRmCpw.png", alt="")
+        h3 Web Development
+        
+section#section_works
+  .container#app
+    .row(v-if="works.length>0")
+      .col-sm-12
+        h1 Works
+    //有.work的都是圖片放置處
+    .row
+      .col-sm-6.work.big
+        a(:href="works[0].Link" target="_blank") 
+          img(v-bind:src="works[0].img", alt="")
+          .texts
+            h4.title {{works[0].title}}
+            p.content(v-html="works[0].content.substr(0,40)")
+      .col-sm-6
+        .row
+          .col-sm-6.work(v-for="w in works.slice(1,5)")
+            a(:href="w.Link" target="_blank") 
+              img(:src="w.img", alt="")
+              .texts
+                h4.title {{w.title}}
+          
+          
+section#section_contact
+  .container
+    .row
+      .col-sm-5.right
+        h2 CONTACT
+        br
+        p If you have any question about us<br>Don't hestitate to contact us!
+        br
+        br
+        p.last BLUESTUDIO@gmail.com<br>ADDRESS: TAIWAN, TAIPEI, XORO ROAD<br>Phone: 02-12345678
+        
+      .col-sm-7
+        #people
+        .mails
+          .mailbody
+            h5 Dear Blue Studio.
+            label Name
+            input(type="text")
+            label Email
+            input(type="text")
+            label Content
+            textarea 
+            button.btn.submit Submit
+        
+      
+footer#footer
+  img.icon(src="https://imgur.com/cqCrmIZ.png", alt="")
+  .nav.navbar-nav.ms-auto
+       li
+          a(href="#section_about") ABOUT
+       li
+          a(href="#section_service") SERVICE 
+       li
+          a(href="#section_works") WORKS
+       li
+          a(href="#section_contact") CONTACT

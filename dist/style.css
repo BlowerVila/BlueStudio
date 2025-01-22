@@ -1,0 +1,422 @@
+@charset "UTF-8";
+* {
+  font-family: "微軟正黑體", "Oswald";
+}
+
+html, body {
+  background-color: #999;
+  overflow-x: hidden;
+  font-size: 16px;
+  padding: 0;
+  margin: 0;
+  height: 200vh;
+}
+
+nav {
+  padding: 10px 30px;
+  background-color: #f7f7f7;
+  position: fixed;
+  z-index: 999;
+  transition: 0.3s;
+}
+nav .container-fluid {
+  display: flex;
+  justify-content: space-between;
+}
+nav .navbar-brand {
+  color: grey;
+}
+nav .navbar-nav {
+  display: flex;
+  gap: 30px;
+}
+nav .navbar-nav li {
+  color: grey;
+  cursor: pointer;
+  padding: 0;
+  list-style: none;
+  transition: 0.5s;
+}
+nav .navbar-nav li:hover {
+  color: #4592AF;
+}
+nav .navbar-nav li a {
+  text-decoration: none;
+  color: inherit;
+}
+
+nav.navbar.at_top {
+  background-color: transparent;
+  color: #ececec;
+  border-bottom: 1px solid rgba(236, 236, 236, 0.5);
+}
+
+header {
+  position: relative;
+  background-color: #33313B;
+  text-align: center;
+}
+header .icon {
+  width: 80%;
+  max-width: 250px;
+  padding: 250px 0px;
+}
+header .marginbottom {
+  position: absolute;
+  left: 10px;
+  right: none;
+  bottom: -60px;
+  transform: translateY(25px) scaleY(1.5);
+  width: 95%;
+  animation: 2s upin both;
+  transition-delay: 0.5s;
+  transition: 0.3s;
+  z-index: 2;
+}
+header .mountain2 {
+  left: 0;
+  right: none;
+  transform: translateY(50px) scaleX(1.5);
+  transition-delay: 0.7s;
+  transition: 0.3s;
+  z-index: 1;
+}
+header .explore {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #E3C4A8;
+  font-size: 16px;
+  top: 85%;
+  opacity: 0;
+  transition: 0.5s;
+}
+header .explore:before {
+  content: "V";
+  font-weight: 250;
+  display: block;
+  transform: scaleX(2.4) scaleY(0.5) translateY(110px);
+}
+header .explore:after {
+  content: "V";
+  font-weight: 250;
+  display: block;
+  transform: scaleX(2.4) scaleY(0.5);
+}
+header .explore.at_top {
+  opacity: 1;
+}
+@keyframes upin {
+  0% {
+    bottom: -100px;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+
+section {
+  padding: 60px 0px;
+  position: relative;
+}
+
+section#section_about {
+  background-color: #4592AF;
+  z-index: 4;
+}
+section#section_about .container {
+  transform: rotate(15deg) scale(0.9);
+}
+section#section_about .row {
+  height: 150px;
+  color: black;
+}
+section#section_about .row .r1text {
+  font-size: clamp(2rem, 6vw, 5rem);
+  transition: 0.1s;
+}
+section#section_about .row .r2text {
+  font-size: 30px;
+  transition: 0.2s;
+}
+section#section_about .row .r3text {
+  font-size: 50px;
+  text-align: right;
+  transition: 0.3s;
+}
+section#section_about .marginbottom {
+  position: absolute;
+  width: 60%;
+  top: calc(100% - 2px);
+  z-index: 2;
+}
+section#section_about .btn_area {
+  height: 150px;
+  position: relative;
+}
+section#section_about a {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) rotate(10deg);
+}
+section#section_about .tri {
+  width: 250px;
+  transform: rotate(-15deg);
+}
+section#section_about .tri2 {
+  width: 20px;
+  margin-left: 20px;
+}
+section#section_about .tri3 {
+  width: 150px;
+  margin-left: 70%;
+}
+section#section_about .tri4 {
+  width: 70px;
+  margin-left: 100%;
+}
+section#section_about .tri5 {
+  width: 80px;
+  margin-left: 100%;
+}
+
+#cross {
+  position: absolute;
+  display: block;
+  z-index: 5;
+  pointer-events: none;
+  background-image: url("https://imgur.com/XuG588h.png");
+  background-size: 100% 100%;
+  width: 60px;
+  height: 60px;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 0 10px #37738a);
+}
+
+#cat {
+  position: absolute;
+  width: 40%;
+  max-width: 450px;
+  bottom: 0px;
+  right: 40px;
+}
+
+section#section_service {
+  background-color: #ececec;
+}
+section#section_service .col-sm-4 {
+  text-align: center;
+}
+section#section_service h3 {
+  color: #33313B;
+  margin-top: 12px;
+  font-size: 20px;
+}
+section#section_service .icon_service {
+  width: 60%;
+}
+
+section#section_works {
+  background-color: #ececec;
+}
+section#section_works .work {
+  height: 230px;
+  cursor: pointer;
+  position: relative;
+  padding: 5px;
+  overflow: hidden;
+}
+section#section_works .work.big {
+  height: 460px;
+}
+section#section_works .work:before {
+  content: "";
+  display: block;
+  opacity: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 5;
+  transition: 0.5s;
+}
+section#section_works .work .texts {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  z-index: 8;
+  opacity: 0;
+  transition: 0.5s;
+}
+section#section_works .work .texts .title {
+  line-height: 24px;
+}
+section#section_works .work:hover:before, section#section_works .work:hover .texts {
+  opacity: 1;
+}
+section#section_works .work img {
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+section#section_works .contacttop {
+  width: 100%;
+  position: absolute;
+  bottom: -17%;
+  left: 10%;
+  z-index: 3;
+}
+section#section_works a {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+section#section_contact {
+  background-color: #33313B;
+  color: #ececec;
+  overflow: hidden;
+  position: relative;
+}
+section#section_contact .mails {
+  position: relative;
+  height: 450px;
+}
+section#section_contact .mails .mailbody {
+  color: #ececec;
+  padding: 20px;
+  padding-left: 40px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  position: relative;
+}
+section#section_contact .mails h5 {
+  letter-spacing: 0.2rem;
+  font-weight: 400;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+section#section_contact .mails label {
+  color: #ececec;
+  letter-spacing: 0.1rem;
+  margin-bottom: 2px;
+}
+section#section_contact .mails input {
+  width: 300px;
+  padding: 1% 0 1% 4px;
+}
+section#section_contact .mails input, section#section_contact .mails textarea {
+  display: block;
+  border: 3px solid #ececec;
+  background-color: #ececec;
+}
+section#section_contact .mails textarea {
+  width: 100%;
+  height: 140px;
+  z-index: 4;
+  margin-bottom: 10px;
+}
+section#section_contact .mails .btn {
+  background-color: #E3C4A8;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
+  padding: 8px 30px;
+}
+section#section_contact .mails .btn:hover {
+  background-color: #d7aa81;
+}
+section#section_contact #people {
+  position: absolute;
+  right: 110px;
+  background-image: url("https://imgur.com/ohumFzr.png");
+  background-size: 100%;
+  display: block;
+  width: 250px;
+  height: 250px;
+  transform: translateY(-20px);
+  z-index: 2;
+}
+section#section_contact .col-sm-5.right {
+  padding-left: 30px;
+  margin-top: 50px;
+}
+section#section_contact .col-sm-5.right h2 {
+  font-size: 50px;
+  letter-spacing: 0.4rem;
+}
+section#section_contact .col-sm-5.right p {
+  letter-spacing: 0.1rem;
+  font-weight: 350;
+}
+section#section_contact .col-sm-5.right .last {
+  color: #4592AF;
+}
+
+.cats {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40%;
+  height: 200px;
+}
+.cats .cat {
+  position: absolute;
+  width: 150px;
+  transform: translateX(-50%);
+  transition: 0.5s;
+}
+
+#cat_blue {
+  left: 20%;
+}
+
+#cat_grey {
+  left: 50%;
+}
+
+#cat_yellow {
+  left: 80%;
+}
+
+#footer {
+  position: relative;
+  background-color: #4592AF;
+  text-align: center;
+}
+#footer .icon {
+  width: 20%;
+  min-width: 250px;
+  padding: 80px 0px;
+  padding-bottom: 40px;
+  filter: brightness(-20);
+}
+#footer .nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.2rem;
+  padding: 20px 0;
+}
+#footer .li, #footer a {
+  display: inline-block;
+  color: #33313B;
+  text-decoration: none;
+}
