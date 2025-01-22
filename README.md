@@ -11,4 +11,4 @@
 ![Frame 64](https://github.com/user-attachments/assets/2b5fc1f5-b8be-4456-92ac-d0d9ebd31e95)
 
 ## References
-[用 Google Sheets 產生 JSON 格式 API]([https://github.com/tony1966/praat-project](https://lynkishere.com/Others/google-sheets-to-json/))
+[用 Google Sheets 產生 JSON 格式 API](https://lynkishere.com/Others/google-sheets-to-json/)
