@@ -91,6 +91,7 @@ header .explore {
   top: 85%;
   opacity: 0;
   transition: 0.5s;
+  z-index: 20
 }
 header .explore:before {
   content: "V";
